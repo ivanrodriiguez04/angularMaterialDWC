@@ -1,7 +1,9 @@
 <div [formGroup]="profileForm" class="formulario">
+  <h2>Perfil 2FB</h2>
+
   <mat-form-field>
     <mat-label>Nombre</mat-label>
-    <input matInput id="nombre" type="text" formControlName="nombre" />
+    <input matInput formControlName="nombre" />
     <mat-error *ngIf="profileForm.controls['nombre'].hasError('required')">
       Este campo es obligatorio.
     </mat-error>
@@ -9,46 +11,45 @@
 
   <mat-form-field>
     <mat-label>Apellidos</mat-label>
-    <input matInput id="apellidos" type="text" formControlName="apellidos" />
+    <input matInput formControlName="apellidos" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Email</mat-label>
-    <input matInput id="email" type="email" formControlName="email" />
+    <input matInput formControlName="email" />
     <mat-error *ngIf="profileForm.controls['email'].hasError('required')">
       Este campo es obligatorio.
     </mat-error>
     <mat-error *ngIf="profileForm.controls['email'].hasError('email')">
-      El correo debe tener un formato válido.
+      Introduzca un correo válido.
     </mat-error>
   </mat-form-field>
 
   <div formGroupName="direccion">
     <h2>Dirección</h2>
+
     <mat-form-field>
       <mat-label>Calle</mat-label>
-      <input matInput id="calle" type="text" formControlName="calle" />
+      <input matInput formControlName="calle" />
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Localidad</mat-label>
-      <input matInput id="localidad" type="text" formControlName="localidad" />
+      <input matInput formControlName="localidad" />
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Provincia</mat-label>
-      <input matInput id="provincia" type="text" formControlName="provincia" />
+      <input matInput formControlName="provincia" />
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Código Postal</mat-label>
-      <input matInput id="codPostal" type="text" formControlName="codPostal" />
+      <input matInput formControlName="codPostal" />
     </mat-form-field>
   </div>
 
-  <button mat-button color="primary" [disabled]="profileForm.invalid" (click)="onSubmit()">
+  <button mat-raised-button color="primary" [disabled]="profileForm.invalid" (click)="onSubmit()">
     Enviar
   </button>
 </div>
-
-<p>{{ profileForm.status }}</p>
