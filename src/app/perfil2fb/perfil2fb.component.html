@@ -1,0 +1,54 @@
+<div [formGroup]="profileForm" class="formulario">
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput id="nombre" type="text" formControlName="nombre" />
+    <mat-error *ngIf="profileForm.controls['nombre'].hasError('required')">
+      Este campo es obligatorio.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Apellidos</mat-label>
+    <input matInput id="apellidos" type="text" formControlName="apellidos" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput id="email" type="email" formControlName="email" />
+    <mat-error *ngIf="profileForm.controls['email'].hasError('required')">
+      Este campo es obligatorio.
+    </mat-error>
+    <mat-error *ngIf="profileForm.controls['email'].hasError('email')">
+      El correo debe tener un formato válido.
+    </mat-error>
+  </mat-form-field>
+
+  <div formGroupName="direccion">
+    <h2>Dirección</h2>
+    <mat-form-field>
+      <mat-label>Calle</mat-label>
+      <input matInput id="calle" type="text" formControlName="calle" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Localidad</mat-label>
+      <input matInput id="localidad" type="text" formControlName="localidad" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Provincia</mat-label>
+      <input matInput id="provincia" type="text" formControlName="provincia" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Código Postal</mat-label>
+      <input matInput id="codPostal" type="text" formControlName="codPostal" />
+    </mat-form-field>
+  </div>
+
+  <button mat-button color="primary" [disabled]="profileForm.invalid" (click)="onSubmit()">
+    Enviar
+  </button>
+</div>
+
+<p>{{ profileForm.status }}</p>

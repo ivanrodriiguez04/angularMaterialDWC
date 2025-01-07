@@ -1,0 +1,19 @@
+<h1 style="text-align: center;">Ejemplo de Formularios Reactivos</h1>
+
+<!-- Botones de navegación -->
+<div style="text-align: center; margin-bottom: 20px;">
+  <button mat-button color="primary" [routerLink]="'/form-dinamico'">
+    Formulario Dinámico
+  </button>
+  <button mat-button color="accent" [routerLink]="'/perfil-usuario'">
+    Perfil de Usuario
+  </button>
+  <button mat-button color="warn" [routerLink]="'/perfil2fb'">
+    Perfil 2FB
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<!-- Área para las vistas de las rutas -->
+<router-outlet></router-outlet>
